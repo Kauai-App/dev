@@ -11,7 +11,8 @@ export default class Messaging {
       const { data } = await api.fetchMessages(access_token)
 
       const response_data: any = data;
-      if(response_data.messages.error.length == 0)
+      Logger.silly('response_data %o', response_data);
+      if(response_data.success)
         return success('Successfully fetched member messages', response_data.data);
       else
         return failure(response_data.message);
@@ -26,7 +27,7 @@ export default class Messaging {
       const { data } = await api.fetchMessage(access_token, message_id)
 
       const response_data: any = data;
-      if(response_data.messages.error.length == 0)
+      if(response_data.success)
         return success('Successfully fetched the message', response_data.data);
       else
         return failure(response_data.message);
