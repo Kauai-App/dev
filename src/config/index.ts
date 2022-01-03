@@ -20,6 +20,6 @@ export default {
   },
 
   api: {
-    prefix: '/location',
+    prefix: '/notification',
   },
 };
